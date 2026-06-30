@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio - Alain Francisco</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ==========================================
+         Menu de Navegação
+         ========================================== -->
+    <header>
+        <h1>Alain Francisco Lopes Feitoza</h1>
+        <nav>
+            <ul>
+                <li><a href="#sobre">Sobre Mim</a></li>
+                <li><a href="#formacao">Formação</a></li>
+                <li><a href="#portfolio">Portfólio</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+        <div style="text-align: right; padding-bottom: 15px; display: flex; justify-content: right; align-items: right; gap: 10px;">
+            <span style="font-size: 14px; font-weight: bold;">Tema:</span>
+            <label class="switch">
+                <input type="checkbox" id="btnTema">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </header>
+
+    <hr>
+
+    <!-- ==========================================
+         SEÇÃO 1:Sobre Mim 
+         ========================================== -->
+    <section id="sobre">
+        <h2>Sobre Mim</h2>
+        <p>Olá! Me chamo Alain Francisco Lopes Feitoza. Sou profissional da área administrativa e estudante de Engenharia de Software. Tenho grande interesse em automação de rotinas, organização de banco de dados e desenvolvimento de ferramentas funcionais.</p>
+      </section>
+
+    <hr>
+
+    <!-- ==========================================
+         SEÇÃO 2: Formação Acadêmica e Profissional
+         ========================================== -->
+    <section id="formacao">
+        <h2>Formação</h2>
+        <ul>
+            <li><strong>Ensino Superior:</strong> Engenharia de Software (Em andamento) - UNINTER.</li>
+            <li><strong>Ensino Técnico:</strong> Técnico em Desenvolvimento de Sistemas (Em andamento) - ETEC.</li>
+            <li><strong>Idioma:</strong> Português (Nativo).</li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <!-- ==========================================
+         SEÇÃO 3: Experiências e Trabalhos
+         ========================================== -->
+    <section id="portfolio">
+        <h2>Portfólio</h2>
+        <p>Abaixo estão listados projetos práticos em que apliquei conhecimentos de gestão e tecnologia:</p>
+        
+        <h3>Sistema de Automação de Matrículas Escolares</h3>
+        <p>Desenvolvimento de banco de dados desktop utilizando rotinas em VBA para otimizar o fluxo de registros de alunos em secretarias.</p>
+
+        <h3>Produção de Conteúdo Digital</h3>
+        <p>Criação e edição de banners promocionais e materiais de identidade visual para plataformas digitais organizacionais.</p>
+    </section>
+
+    <hr>
+
+    <!-- ==========================================
+         SEÇÃO 4: Contato
+         ========================================== -->
+    <section id="contato">
+        <h2>Contato</h2>
+        <p>Preencha os campos abaixo para enviar uma mensagem diretamente para mim:</p>
+        
+        <form id="formContato">
+            <p>
+                <label for="nome">Nome Completo:</label><br>
+                <input type="text" id="nome" required placeholder="Digite seu nome">
+            </p>
+            
+            <p>
+                <label for="email">E-mail de Contato:</label><br>
+                <input type="text" id="email" required placeholder="seuemail@dominio.com">
+            </p>
+            
+            <p>
+                <label for="mensagem">Mensagem:</label><br>
+                <textarea id="mensagem" rows="5" required placeholder="Escreva o motivo do seu contato..."></textarea>
+            </p>
+            
+            <p>
+                <button type="submit">Enviar Mensagem</button>
+            </p>
+        </form>
+    </section>
+
+    <hr>
+
+    <!-- ==========================================
+        Identificação do Autor
+         ========================================== -->
+    <footer>
+        <p>&copy; 2026 Alain Francisco. Trabalho Prático de Programação Web - UNINTER.</p>
+    </footer>
+<!-- ==========================================
+         Validação do Formulário
+         ========================================== -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            // TEMA (CLARO/ESCURO)
+            const btnTema = document.getElementById("btnTema");
+            
+            btnTema.addEventListener("click", function() {
+                
+                document.body.classList.toggle("dark-mode");
+            });
+
+            // 2.VALIDAÇÃO DO FORMULÁRIO
+            const form = document.getElementById("formContato");
+
+            form.addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                const nome = document.getElementById("nome").value.trim();
+                const email = document.getElementById("email").value.trim();
+                const mensagem = document.getElementById("mensagem").value.trim();
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                if (nome === "" || email === "" || mensagem === "") {
+                    alert("Por favor, preencha todos os campos do formulário.");
+                    return;
+                }
+
+                if (!emailRegex.test(email)) {
+                    alert("Por favor, insira um e-mail válido (exemplo: usuario@dominio.com).");
+                    return;
+                }
+
+                alert("Mensagem enviada com sucesso! Obrigado pelo contato.");
+                form.reset();
+            });
+        });
+    </script>
+</body>
+</html>
